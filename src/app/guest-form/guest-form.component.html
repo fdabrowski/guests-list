@@ -1,0 +1,40 @@
+<div>
+  <div>
+    <label>
+      First Name
+      <input type="text" [formControl]="firstNameCtrl" />
+    </label>
+    <p>{{firstNameCtrl.value}}</p>
+  </div>
+  <div>
+    <label>
+      Second Name
+      <input type="text" [formControl]="secondNameCtrl" />
+    </label>
+    <p>{{secondNameCtrl.value}}</p>
+  </div>
+  <div>
+    <label>
+      Do you have partner
+      <input type="checkbox" [formControl]="withPartnerCtrl" />
+    </label>
+    <p>{{secondNameCtrl.value}}</p>
+  </div>
+  <div *ngIf="withPartnerCtrl.value">
+    <div>
+      <label>
+        Partner First Name
+        <input type="text" [formControl]="firstNameCtrl" />
+      </label>
+      <p>{{firstNameCtrl.value}}</p>
+    </div>
+    <div>
+      <label>
+        Partner Second Name
+        <input type="text" [formControl]="secondNameCtrl" />
+      </label>
+      <p>{{secondNameCtrl.value}}</p>
+    </div>
+    <div>
+  </div>
+</div>
