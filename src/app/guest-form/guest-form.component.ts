@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'guest-form',
@@ -8,19 +8,19 @@ import { FormControl } from '@angular/forms';
 })
 export class GuestFormComponent implements OnInit {
 
-  firstNameCtrl: FormControl;
-  secondNameCtrl: FormControl;
-  withPartnerCtrl: FormControl;
-  partnerFirstNameCtrl: FormControl;
-  partnerSecondNameCtrl: FormControl;
+  guestFormGroup: FormGroup;
 
-  constructor() {}
+  constructor() {
+
+  }
 
   ngOnInit() {
-    this.firstNameCtrl = new FormControl('');
-    this.secondNameCtrl = new FormControl('');
-    this.partnerFirstNameCtrl = new FormControl('');
-    this.partnerSecondNameCtrl = new FormControl('');
-    this.withPartnerCtrl = new FormControl(false);
+    this.guestFormGroup = new FormGroup({
+      firstNameCtrl: new FormControl(''),
+      secondNameCtrl: new FormControl(''),
+      partnerFirstNameCtrl: new FormControl(''),
+      partnerSecondNameCtrl: new FormControl(''),
+      withPartnerCtrl: new FormControl(false)
+    });
   }
 }

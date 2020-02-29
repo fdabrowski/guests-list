@@ -1,40 +1,39 @@
-<div>
+<form [formGroup]='guestFormGroup'>
   <div>
     <label>
       First Name
-      <input type="text" [formControl]="firstNameCtrl" />
+      <input type="text" formControlName="firstNameCtrl" />
     </label>
-    <p>{{firstNameCtrl.value}}</p>
+    <p>{{guestFormGroup.controls.firstNameCtrl.value}}</p>
   </div>
   <div>
     <label>
       Second Name
-      <input type="text" [formControl]="secondNameCtrl" />
+      <input type="text" formControlName="secondNameCtrl" />
     </label>
-    <p>{{secondNameCtrl.value}}</p>
+    <p>{{guestFormGroup.controls.secondNameCtrl.value}}</p>
   </div>
   <div>
     <label>
       Do you have partner
-      <input type="checkbox" [formControl]="withPartnerCtrl" />
+      <input type="checkbox" formControlName="withPartnerCtrl" />
     </label>
-    <p>{{secondNameCtrl.value}}</p>
+    <p>{{guestFormGroup.controls.withPartnerCtrl.value}}</p>
   </div>
-  <div *ngIf="withPartnerCtrl.value">
+  <div *ngIf='guestFormGroup.controls.withPartnerCtrl.value'>
     <div>
       <label>
         Partner First Name
-        <input type="text" [formControl]="firstNameCtrl" />
+        <input type='text' formControlName='partnerFirstNameCtrl' />
       </label>
-      <p>{{firstNameCtrl.value}}</p>
+      <p>{{guestFormGroup.controls.partnerFirstNameCtrl.value}}</p>
     </div>
     <div>
       <label>
         Partner Second Name
-        <input type="text" [formControl]="secondNameCtrl" />
+        <input type='text' formControlName='partnerSecondNameCtrl' />
       </label>
-      <p>{{secondNameCtrl.value}}</p>
+      <p>{{guestFormGroup.controls.partnerSecondNameCtrl.value}}</p>
     </div>
-    <div>
   </div>
-</div>
+</form>
