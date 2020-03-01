@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'guest-form',
@@ -10,12 +10,19 @@ export class GuestFormComponent implements OnInit {
 
   guestFormGroup: FormGroup;
 
-  constructor() {
-
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
-    this.guestFormGroup = new FormGroup({
+    this.guestFormGroup = this.createFormGroup();
+  }
+
+  onSubmit() {
+    console.log(this.guestFormGroup.value);
+  }
+
+  private createFormGroup(): FormGroup {
+    return this.fb.group({
       firstNameCtrl: new FormControl(''),
       secondNameCtrl: new FormControl(''),
       partnerFirstNameCtrl: new FormControl(''),

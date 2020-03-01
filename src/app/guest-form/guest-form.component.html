@@ -1,39 +1,32 @@
-<form [formGroup]='guestFormGroup'>
-  <div>
-    <label>
-      First Name
-      <input type="text" formControlName="firstNameCtrl" />
-    </label>
-    <p>{{guestFormGroup.controls.firstNameCtrl.value}}</p>
+<div>
+
+</div>
+<form [formGroup]="guestFormGroup" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="firstName">First Name</label>
+    <input id="firstName" class="form-control" type="text" formControlName="firstNameCtrl" />
   </div>
-  <div>
-    <label>
-      Second Name
-      <input type="text" formControlName="secondNameCtrl" />
-    </label>
-    <p>{{guestFormGroup.controls.secondNameCtrl.value}}</p>
+  <div class="form-group">
+    <label for="secondName">Second Name</label>
+    <input id="secondName" class="form-control" type="text" formControlName="secondNameCtrl" />
   </div>
-  <div>
-    <label>
-      Do you have partner
-      <input type="checkbox" formControlName="withPartnerCtrl" />
+  <div class="form-group">
+    <label for="withPartner">Do you have partner
+        <input id="withPartner" type="checkbox" formControlName="withPartnerCtrl" />
     </label>
-    <p>{{guestFormGroup.controls.withPartnerCtrl.value}}</p>
+
   </div>
-  <div *ngIf='guestFormGroup.controls.withPartnerCtrl.value'>
-    <div>
-      <label>
-        Partner First Name
-        <input type='text' formControlName='partnerFirstNameCtrl' />
-      </label>
-      <p>{{guestFormGroup.controls.partnerFirstNameCtrl.value}}</p>
+  <div *ngIf="guestFormGroup.controls.withPartnerCtrl.value">
+    <div class="form-group">
+      <label for="partnerFirstName"> Partner First Name</label>
+      <input id="partnerFirstName" class="form-control" type="text" formControlName="partnerFirstNameCtrl" />
     </div>
-    <div>
-      <label>
-        Partner Second Name
-        <input type='text' formControlName='partnerSecondNameCtrl' />
-      </label>
-      <p>{{guestFormGroup.controls.partnerSecondNameCtrl.value}}</p>
+    <div class="form-group">
+      <label for="partnerSecondName">Partner Second Name</label>
+      <input id="partnerSecondName" type="text" class="form-control" formControlName="partnerSecondNameCtrl" />
     </div>
   </div>
+  <button class="btn-primary" type="submit" [disabled]="!guestFormGroup.valid">
+    Submit
+  </button>
 </form>
