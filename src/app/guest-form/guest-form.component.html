@@ -1,20 +1,23 @@
-<div>
-
-</div>
 <form [formGroup]="guestFormGroup" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="firstName">First Name</label>
-    <input id="firstName" class="form-control" type="text" formControlName="firstNameCtrl" />
+    <input id="firstName" class="form-control" type="text" formControlName="firstNameCtrl"/>
+    <p *ngIf="guestFormGroup.controls.firstNameCtrl.dirty && !guestFormGroup.controls.firstNameCtrl.valid" class="alert-danger">Please add first name.</p>
   </div>
   <div class="form-group">
     <label for="secondName">Second Name</label>
     <input id="secondName" class="form-control" type="text" formControlName="secondNameCtrl" />
+    <p *ngIf="guestFormGroup.controls.secondNameCtrl.dirty && !guestFormGroup.controls.secondNameCtrl.valid" class="alert-danger">Please add second name.</p>
+  </div>
+  <div class="form-group">
+    <label for="phoneNumber">Phone Number</label>
+    <input id="phoneNumber" class="form-control" type="text" formControlName="phoneNumberCtrl" />
+    <p *ngIf="guestFormGroup.controls.phoneNumberCtrl.dirty && !guestFormGroup.controls.phoneNumberCtrl.valid" class="alert-danger">Please add valid phone number.</p>
   </div>
   <div class="form-group">
     <label for="withPartner">Do you have partner
         <input id="withPartner" type="checkbox" formControlName="withPartnerCtrl" />
     </label>
-
   </div>
   <div *ngIf="guestFormGroup.controls.withPartnerCtrl.value">
     <div class="form-group">
@@ -26,7 +29,7 @@
       <input id="partnerSecondName" type="text" class="form-control" formControlName="partnerSecondNameCtrl" />
     </div>
   </div>
-  <button class="btn-primary" type="submit" [disabled]="!guestFormGroup.valid">
+  <button class="btn" type="submit" [disabled]="!guestFormGroup.valid">
     Submit
   </button>
 </form>
