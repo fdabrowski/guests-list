@@ -1,0 +1,19 @@
+<div *ngIf="isAdmin">
+    <div class="row">
+        <div class="col-2">First Name</div>
+        <div class="col-2">Second Name</div>
+        <div class="col-2">Phone Number</div>
+        <div class="col-2">Partner</div>
+        <div class="col-2">Partner First Name</div>
+        <div class="col-2">Partner Sec Name</div>
+    </div>
+    <div class="row" *ngFor="let guest of guests">
+        <div class="col-2">{{guest.firstName}}</div>
+        <div class="col-2">{{guest.secondName}}</div>
+        <div class="col-2">{{guest.phoneNumber}}</div>
+        <div class="col-2">{{guest.withPartner}}</div>
+        <div class="col-2">{{guest.partnerFirstName}}</div>
+        <div class="col-2">{{guest.partnerSecondName}}</div>
+    </div>
+</div>
+<button class="btn toogle-button" (click)="toogleIsAdmin()">Toogle</button>
