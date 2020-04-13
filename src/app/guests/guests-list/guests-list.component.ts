@@ -20,9 +20,7 @@ export class GuestsListComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.store.select(questsState.guestsListVisibleSelector).subscribe( isListVisible => this.isAdmin = isListVisible);
-    // this.isAdmin = true;
     this.guestsService.getGuests().subscribe(
       (guests: Guest[]) => this.guests = guests
     );

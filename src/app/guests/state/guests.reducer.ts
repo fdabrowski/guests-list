@@ -4,7 +4,7 @@ import * as fromActions from '../state/guests.actions';
 import { state } from '@angular/animations';
 
 export interface AppState extends fromRoot.AppState {
-    isListVisible: boolean;
+    isGuestListVisible: boolean;
 }
 
 export const stateKey = 'guests';
@@ -17,14 +17,14 @@ const guestsFeatureSelector = createFeatureSelector<AppState>(stateKey);
 
 export const guestsListVisibleSelector = createSelector(
     guestsFeatureSelector,
-    state => state.isListVisible
+    guestsState => guestsState.isGuestListVisible
 );
 
 const guestsReducer = createReducer(
     initialState,
-    on(fromActions.toggleGuestListAction, state => ({ ...state, isListVisible: !state.isListVisible}))
+    on(fromActions.toggleGuestListAction, guestsState => ({ ...state, isListVisible: !guestsState.isListVisible}))
 );
 
-export function reducer(state: AppState | undefined, action: Action) {
-    return guestsReducer(state, action);
+export function reducer(guestsState: AppState | undefined, action: Action) {
+    return guestsReducer(guestsState, action);
 }
